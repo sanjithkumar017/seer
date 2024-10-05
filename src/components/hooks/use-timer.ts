@@ -1,11 +1,5 @@
 import { useEffect, useState } from "react";
-
-type TUseTimer = {
-  days: string;
-  hours: string;
-  minutes: string;
-  seconds: string;
-};
+import { TUseTimer } from "./types";
 
 const formatNumber = (num: number) => {
   return num < 10 ? `0${num}` : `${num}`;

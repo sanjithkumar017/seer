@@ -1,33 +1,58 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "reset.css";
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: "poppins";
+  src: url("../../public/fonts/Poppins-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: "poppins";
+  src: url("../../public/fonts/Poppins-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
 }
 
+@font-face {
+  font-family: "poppins";
+  src: url("../../public/fonts/Poppins-LightItalic.ttf");
+  font-weight: normal;
+  font-style: italic;
+}
+
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: poppins;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+#__next {
+  height: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.b {
+  font-weight: bold;
 }
