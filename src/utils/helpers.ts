@@ -1,4 +1,5 @@
 import { customHolidays } from "./constants";
+import { GetPayDay } from "./types";
 
 export const getDaysInMonth = (year: number, month: number) =>
   new Date(year, month + 1, 0).getDate();
@@ -13,14 +14,25 @@ export const validateHolidays = (
   ].includes(currentDay);
 };
 
-export const getPayDay = () => {
-  const currentYear = new Date().getFullYear();
-  const currentMonth = new Date().getMonth();
+export const getPayDay: GetPayDay = (index = 0) => {
+  let currentYear = new Date().getFullYear();
+  let currentMonth = new Date().getMonth();
+  if (index !== 0) {
+    if (currentMonth === 0 && index < 0) {
+      currentYear = currentYear - 1;
+      currentMonth = 11;
+    } else if (currentMonth === 11 && index > 0) {
+      currentYear = currentYear + 1;
+      currentMonth = 0;
+    } else {
+      currentMonth = currentMonth + index;
+    }
+  }
   const daysInMonth = getDaysInMonth(currentYear, currentMonth);
 
   let mayBePayDay = daysInMonth;
   while (mayBePayDay > 0) {
-    const date = new Date(2024, currentMonth, mayBePayDay);
+    const date = new Date(currentYear, currentMonth, mayBePayDay);
     const currentDay = date.getDay();
 
     const isHoliday = validateHolidays(currentYear, currentMonth, mayBePayDay);
