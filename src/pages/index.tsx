@@ -1,16 +1,12 @@
-import { Inter } from "next/font/google";
 import { getPayDay } from "@/utils/helpers";
 import { useTimer } from "@/components/hooks/use-timer";
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [payDayString, payDayMilliseconds] = getPayDay();
   const timeRemaining = useTimer(payDayMilliseconds as number);
 
   return (
-    <main
-      className={`flex flex-col min-h-screen items-center p-24 ${inter.className}`}
-    >
+    <main className="flex flex-col min-h-screen items-center p-24">
       <h1>
         <b>Upcoming Salary Date is -</b> {payDayString}{" "}
       </h1>
